@@ -1,7 +1,18 @@
 const express = require('express');
+const mongoose = require("mongoose");
 const app = express()
 
 
+// Require the Db connection String
+const db = require("./config/db_config").MongoURI;
+
+// MongoDB Connection
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(function () {
+    console.log("MongoDb Connected");
+  })
+  .catch((err) => console.log(err));
 
 
 
