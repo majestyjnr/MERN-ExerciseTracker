@@ -14,10 +14,17 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-
-
 // BodyParser || To GET data from form
 app.use(express.urlencoded({ extended: false }));
+
+
+// Require routes
+const users = require('./routes/users')
+const exercises = require('./routes/exercises')
+
+// System routes
+app.use('/', users)
+app.use('/', exercises)
 
 const PORT =  process.env.PORT || 4000
 app.listen(PORT, function(){
