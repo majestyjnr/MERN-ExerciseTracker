@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-inverse">
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
       <div className="container-fluid">
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
@@ -12,17 +12,17 @@ const Navbar = () => {
           </Link>
         </div>
         <ul className="nav navbar-nav">
-          <li class="active">
-            <Link to="#" >Home</Link>
+          <li class="active" className="navbar-item">
+            <Link to="/" className="nav-link">Exercises</Link>
           </li>
-          <li>
-            <Link to="#">Page 1</Link>
+          <li className="navbar-item">
+            <Link to="/create-exercises" className="nav-link">Create Exercises</Link>
           </li>
-          <li>
-            <Link to="#">Page 2</Link>
+          <li className="navbar-item">
+            <Link to="/edit-exercises" className="nav-link">Edit Exercises</Link>
           </li>
-          <li>
-            <Link to="#">Page 3</Link>
+          <li className="navbar-item">
+            <Link to="/create-users" className="nav-link">Create Users</Link>
           </li>
         </ul>
       </div>
