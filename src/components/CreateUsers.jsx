@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const CreateUsers = () => {
 
     const [username, setUsername] = useState('')
-    
+
     const onSubmit = (e) => {
         e.preventDefault()
         const newUser ={
@@ -11,7 +11,7 @@ const CreateUsers = () => {
         }
         console.table(newUser)
     
-        window.location ='/'
+        setUsername('')
     }
 
     return (
