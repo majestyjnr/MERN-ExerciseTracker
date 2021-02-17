@@ -17,6 +17,8 @@ mongoose
 // BodyParser || To GET data from form
 app.use(express.urlencoded({ extended: false }));
 
+// BodyParser || To GET data in json
+app.use(express.json());
 
 // Require routes
 const users = require('./routes/users')
