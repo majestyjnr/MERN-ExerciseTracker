@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require("mongoose");
+const cors = require('cors')
 const app = express()
 
 
@@ -16,6 +17,8 @@ mongoose
 
 // BodyParser || To GET data from form
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors())
 
 // BodyParser || To GET data in json
 app.use(express.json());
