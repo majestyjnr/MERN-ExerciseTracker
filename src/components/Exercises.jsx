@@ -6,7 +6,9 @@ const Exercises = () => {
     const [exercises, setExercises] = useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/exercises')
+        axios.get('http://localhost:4000/exercises').then(response => {
+            setExercises(response.data)
+        })
     })
     return (
         <div>

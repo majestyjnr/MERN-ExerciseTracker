@@ -13,7 +13,9 @@ useEffect(() => {
     axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
         setUsers(response.data.map(user => user.username))
         setUsername(response.data[0].username)
-    }});
+    }}).catch(error => {
+        console.log(error)
+    });
 })
 
 const onSubmit = (e) => {
