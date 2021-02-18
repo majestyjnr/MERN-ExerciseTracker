@@ -12,7 +12,7 @@ const [users, setUsers] = useState([])
 useEffect(() => {
     axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
         setUsers(response.data.map(user => user.username))
-        setUsername(response.data[0].username)
+        // setUsername(response.data[0].username)
     }}).catch(error => {
         console.log(error)
     });
@@ -30,7 +30,7 @@ const onSubmit = (e) => {
 
     axios.post('http://localhost:4000/add-exercise', newExercise).then(res => console.log(res.data))
 
-    // // window.location ='/'
+    window.location ='/'
 }
 
 
