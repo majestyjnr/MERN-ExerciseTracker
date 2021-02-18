@@ -34,8 +34,8 @@ const Exercises = () => {
   return (
     <div className="container card">
       <h2 className="text-center">Registered Exercises</h2>
-      <table className="table m-2">
-        <thead className="thead-inverse">
+      <table className="table m-2 table-hover">
+        <thead className="bg-primary text-white">
           <tr>
             <td>Username</td>
             <td>Exercise</td>
@@ -43,6 +43,7 @@ const Exercises = () => {
             <td>Date</td>
             <td>Action</td>
           </tr>
+          </thead>
           <tbody>
             {exercises.map(function(eachExercise) {
               return (
@@ -54,7 +55,6 @@ const Exercises = () => {
               );
             })}
           </tbody>
-        </thead>
       </table>
     </div>
   );
