@@ -18,11 +18,17 @@ const Exercises = () => {
     setExercises(exercises.filter(elements => elements._id !== id))
   }
 
+  function exercisesList(){
+      return exercises.map(eachExercise => {
+
+      })
+  }
+
   return (
     <div className="container card">
       <h1>Registered Exercises</h1>
       <table className="table m-4">
-          <thead className="thead-primary">
+          <thead className="bg-primary text-white">
             <tr>
                 <td>Username</td>
                 <td>Exercise</td>
@@ -31,7 +37,7 @@ const Exercises = () => {
                 <td>Action</td>
             </tr>
             <tbody>
-                {}
+                {exercisesList}
             </tbody>
           </thead>
 
