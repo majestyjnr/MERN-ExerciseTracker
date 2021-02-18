@@ -1,20 +1,26 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Exercises = () => {
+  const [exercises, setExercises] = useState([]);
 
-    const [exercises, setExercises] = useState([])
+  useEffect(() => {
+    axios.get("http://localhost:4000/").then((response) => {
+      setExercises(response.data);
+    });
+  });
 
-    useEffect(()=>{
-        axios.get('http://localhost:4000/exercises').then(response => {
-            setExercises(response.data)
-        })
-    })
-    return (
-        <div>
-            <h1>Exercises List Component</h1>
-        </div>
-    )
-}
+  function deleteExercise(id) {
+    axios.delete("http://localhost:4000/exercises/" + id).then((res) => {
+      console.log(res.data);
+    });
+  }
 
-export default Exercises
+  return (
+    <div>
+      <h1>Exercises List Component</h1>
+    </div>
+  );
+};
+
+export default Exercises;
