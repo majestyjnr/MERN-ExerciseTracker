@@ -9,7 +9,7 @@ const Exercise = ({props}) => {
             <td>{props.exercise.duration}</td>
             <td>{props.exercise.date}</td>
             <td>
-                <Link to={"/edit-exercise/"+ props.exercise._id}> Edit </Link> | <a href="http://"> Delete </a>
+                <Link to={"/edit-exercise/"+ props.exercise._id}> Edit </Link> | <a href="http://" onClick={props.deleteExercise()}> Delete </a>
             </td>
         </tr>
     )
