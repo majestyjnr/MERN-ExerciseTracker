@@ -19,8 +19,23 @@ const Exercises = () => {
   }
 
   return (
-    <div>
-      <h1>Exercises List Component</h1>
+    <div className="container card">
+      <h1>Registered Exercises</h1>
+      <table className="table m-4">
+          <thead className="thead-primary">
+            <tr>
+                <td>Username</td>
+                <td>Exercise</td>
+                <td>Duration</td>
+                <td>Date</td>
+                <td>Action</td>
+            </tr>
+            <tbody>
+                {}
+            </tbody>
+          </thead>
+
+      </table>
     </div>
   );
 };
