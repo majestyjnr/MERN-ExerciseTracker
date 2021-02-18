@@ -5,7 +5,7 @@ const EditExercises = () => {
         <div className="container card p-5">
             <h1>Edit Exercise</h1>
 
-            <form className="add-form" onSubmit={onSubmit}>
+            {/* <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <select class="form-control" value={username} onChange={(e)=> setUsername(e.target.value)} id="username">
@@ -31,7 +31,7 @@ const EditExercises = () => {
                 </div>
 
                 <input type="submit" value="Save Task" placeholder='In Minutes' className='btn btn-primary'/>
-            </form>
+            </form> */}
         </div>
     )
 }
