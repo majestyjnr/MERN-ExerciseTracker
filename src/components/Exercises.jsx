@@ -27,8 +27,8 @@ const Exercises = () => {
 
   return (
     <div className="container card">
-      <h1>Registered Exercises</h1>
-      <table className="table m-4">
+      <h2 className="text-center">Registered Exercises</h2>
+      <table className="table m-2">
           <thead className="bg-primary text-white">
             <tr>
                 <td>Username</td>
