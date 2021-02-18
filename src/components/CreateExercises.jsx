@@ -5,6 +5,8 @@ const CreateExercises = () => {
 const [username, setUsername] = useState('')
 const [description, setDescription] = useState('')
 const [duration, setDuration] = useState(0)
+const [date, setDate] = useState(new Date())
+
 const [users, setUsers] = useState([])
 
 const onSubmit = (e) => {
@@ -12,7 +14,8 @@ const onSubmit = (e) => {
     const newExercise ={
         username,
         description,
-        duration
+        duration,
+        date
     }
     console.table(newExercise)
 
