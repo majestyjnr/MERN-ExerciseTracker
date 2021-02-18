@@ -14,6 +14,8 @@ const Exercises = () => {
     axios.delete("http://localhost:4000/exercises/" + id).then((res) => {
       console.log(res.data);
     });
+
+    setExercises(exercises.filter(elements => elements._id !== id))
   }
 
   return (
