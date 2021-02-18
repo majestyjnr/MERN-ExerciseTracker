@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
+import axios from 'axios'
 
 const CreateExercises = () => {
 
@@ -8,7 +9,12 @@ const [duration, setDuration] = useState(0)
 const [date, setDate] = useState(new Date())
 const [users, setUsers] = useState([])
 
-
+useEffect(() => {
+    axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
+        setUsers(response.data.map(user => user.username))
+        setUsername(response.data[0].username)
+    }});
+})
 
 const onSubmit = (e) => {
     e.preventDefault()
@@ -32,7 +38,7 @@ const onSubmit = (e) => {
             <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <select class="form-control" value={username} onChange={(e)=> setDate(e.target.value)} id="username">
+                    <select class="form-control" value={username} onChange={(e)=> setUsername(e.target.value)} id="username">
                         {
                             users.map(function(user){
                                 return <option key={user} value={user}>{user}</option>
