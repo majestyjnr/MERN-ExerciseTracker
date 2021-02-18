@@ -21,7 +21,7 @@ const Exercises = () => {
 
   function exercisesList(){
       return exercises.map(eachExercise => {
-        
+        <Exercise exercise= {eachExercise} deleteExercise={deleteExercise} key={eachExercise._id}/>
       })
   }
 
