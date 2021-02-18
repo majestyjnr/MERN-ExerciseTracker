@@ -1,15 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Exercise = ({props}) => {
+const Exercise = (props) => {
     return (
         <tr>
             <td>{props.exercise.username}</td>
-            <td>{props.exercise.exercise}</td>
+            <td>{props.exercise.description}</td>
             <td>{props.exercise.duration}</td>
             <td>{props.exercise.date}</td>
             <td>
-                <Link to={"/edit-exercise/"+ props.exercise._id}> Edit </Link> | <a href="#" onClick={props.deleteExercise(props.exercise._id)}> Delete </a>
+                Halleluyah
+                {/* <Link to={"/edit-exercise/"+ props.exercise._id}> Edit </Link> | <a href="#" > Delete </a> */}
             </td>
         </tr>
     )

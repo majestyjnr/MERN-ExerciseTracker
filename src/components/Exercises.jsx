@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Exercise from '../components/Exercise'
+import Exercise from "../components/Exercise";
 
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
@@ -16,32 +16,45 @@ const Exercises = () => {
       console.log(res.data);
     });
 
-    setExercises(exercises.filter(elements => elements._id !== id))
+    setExercises(exercises.filter((el) => el._id !== id));
   }
 
-  function exercisesList(){
-      return exercises.map(eachExercise => {
-        return <Exercise exercise= {eachExercise} deleteExercise={deleteExercise} key={eachExercise._id}/>
-      })
+  function exercisesList() {
+    return exercises.map((eachExercise) => {
+      return (
+        <Exercise
+          exercise={eachExercise}
+          deleteExercise={deleteExercise}
+          key={eachExercise._id}
+        />
+      );
+    });
   }
 
   return (
     <div className="container card">
       <h2 className="text-center">Registered Exercises</h2>
       <table className="table m-2">
-          <thead className="bg-primary text-white">
-            <tr>
-                <td>Username</td>
-                <td>Exercise</td>
-                <td>Duration</td>
-                <td>Date</td>
-                <td>Action</td>
-            </tr>
-            <tbody>
-                {exercisesList}
-            </tbody>
-          </thead>
-
+        <thead className="thead-inverse">
+          <tr>
+            <td>Username</td>
+            <td>Exercise</td>
+            <td>Duration</td>
+            <td>Date</td>
+            <td>Action</td>
+          </tr>
+          <tbody>
+            {exercises.map(function(eachExercise) {
+              return (
+                <Exercise
+                  exercise={eachExercise}
+                  deleteExercise={deleteExercise}
+                  key={eachExercise._id}
+                />
+              );
+            })}
+          </tbody>
+        </thead>
       </table>
     </div>
   );
