@@ -20,7 +20,7 @@ const CreateUsers = () => {
 
   return (
     <div className="container card p-5">
-      <h1>Create User Component</h1>
+      <h1>Create User</h1>
 
       <form className="add-form" onSubmit={onSubmit}>
         <div className="form-group">

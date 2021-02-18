@@ -37,7 +37,7 @@ const onSubmit = (e) => {
 
     return (
         <div className="container card p-5">
-            <h1>Create Exercise Component</h1>
+            <h1>Create Exercise</h1>
 
             <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">
