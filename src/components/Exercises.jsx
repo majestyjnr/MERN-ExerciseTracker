@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Exercise from '../components/Exercise'
 
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
@@ -20,7 +21,7 @@ const Exercises = () => {
 
   function exercisesList(){
       return exercises.map(eachExercise => {
-
+        
       })
   }
 
