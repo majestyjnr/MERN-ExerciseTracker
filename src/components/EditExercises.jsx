@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
-const EditExercises = () => {
+const EditExercises = (props) => {
 
 const [username, setUsername] = useState('')
 const [description, setDescription] = useState('')
@@ -10,8 +10,7 @@ const [date, setDate] = useState(new Date())
 const [users, setUsers] = useState([])
 
 useEffect(() => {
-
-    axios.get('http://localhost:4000/' + this.props.match.params.id).then(response => {if (response.data.length > 0 ){
+    axios.get('http://localhost:4000/' + props.match.params.id).then(response => {if (response.data.length > 0 ){
         setUsers(response.data.map(user => user.username))
     }}).catch(error => {
         console.log(error)
