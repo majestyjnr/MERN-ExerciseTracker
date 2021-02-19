@@ -19,6 +19,22 @@ router.post('/add-exercise', function(req, res){
     newExercise.save().then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.get('/edit-exercise/:id', function(req, res){
+    Exercises.findById(req.params.id).then(exercise => res.json(exercise)).catch(err => res.status(400).json('Error: ' + err))
+})
 
+router.post('/edit-exercise', function(req, res){
+
+    const editedExercise = {
+        $set: {
+            username: req.body.username,
+            description: req.body.description,
+            duration: req.body.duration,
+            date: req.body.duration
+        }
+    }
+
+    newExercise.updateOne({ _id: req.body._id }, editedExercise ).then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router

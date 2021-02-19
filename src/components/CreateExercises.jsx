@@ -64,7 +64,7 @@ const onSubmit = (e) => {
                     <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)}/>
                 </div>
 
-                <input type="submit" value="Save Task" placeholder='In Minutes' className='btn btn-primary'/>
+                <input type="submit" value="Save Exercise" placeholder='In Minutes' className='btn btn-primary'/>
             </form>
         </div>
     )
