@@ -1,6 +1,35 @@
 import React from 'react'
 
 const EditExercises = () => {
+    const [username, setUsername] = useState('')
+    const [description, setDescription] = useState('')
+    const [duration, setDuration] = useState(0)
+    const [date, setDate] = useState(new Date())
+    const [users, setUsers] = useState([])
+
+    useEffect(() => { 
+    axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
+        setUsers(response.data.map(user => user.username))
+    }}).catch(error => {
+        console.log(error)
+    });
+    })
+
+    const onSubmit = (e) => {
+    e.preventDefault()
+    const newExercise ={
+        username,
+        description,
+        duration,
+        date
+    }
+    console.table(newExercise)
+
+    axios.post('http://localhost:4000/add-exercise', newExercise).then(res => console.log(res.data))
+
+    window.location ='/'
+    }
+
     return (
         <div className="container card p-5">
             <h1>Edit Exercise</h1>

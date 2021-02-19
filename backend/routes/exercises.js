@@ -19,4 +19,6 @@ router.post('/add-exercise', function(req, res){
     newExercise.save().then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
 
+
+
 module.exports = router
