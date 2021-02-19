@@ -13,7 +13,6 @@ const Exercise = (props) => {
             <td>{props.exercise.duration}</td>
             <td>{props.exercise.date}</td>
             <td>
-            {/* <Link to={"/edit-exercises/" + props.exercise._id }> Edit </Link>  */}
             <Link to={"/edit-exercises/" + props.exercise._id }> Edit </Link> | <a href="#" > Delete </a>
             </td>
         </tr>
