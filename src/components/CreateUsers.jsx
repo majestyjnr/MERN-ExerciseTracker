@@ -16,6 +16,8 @@ const CreateUsers = () => {
       .then((res) => console.log(res.data));
 
     setUsername("");
+
+    window.location = '/'
   };
 
   return (
