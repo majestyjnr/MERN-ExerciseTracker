@@ -11,9 +11,12 @@ const [users, setUsers] = useState([])
 
 useEffect(() => {
     console.log(props.match.params.id)
-    axios.get('http://localhost:4000/edit-exercise/' + props.match.params.id).then(response => {if (response.data.length > 0 ){
-        setUsers(response.data.map(user => user.username))
-    }}).catch(error => {
+    axios.get('http://localhost:4000/edit-exercise/' + props.match.params.id).then((response) => {
+
+        setDescription(response.data.description)
+        setDuration(response.data.duration)
+        setDate(new Date(response.data.date))
+    }).catch(error => {
         console.log(error)
     });
 
@@ -44,7 +47,7 @@ const onSubmit = (e) => {
 
     return (
         <div className="container card p-5">
-            <h1>Create Exercise</h1>
+            <h1>Edit Exercise</h1>
 
             <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">

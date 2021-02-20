@@ -11,6 +11,7 @@ const [users, setUsers] = useState([])
 
 useEffect(() => {
     axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
+        console.log(response)
         setUsers(response.data.map(user => user.username))
         // setUsername(response.data[0].username)
     }}).catch(error => {

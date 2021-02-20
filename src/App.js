@@ -16,7 +16,7 @@ function App() {
       <br/>
       <Route path="/" exact component={ExerciseList}/>
       <Route path="/create-exercises" component={CreateExercises}/>
-      <Route path="/edit-exercise" component={EditExercises}/>
+      <Route path="/edit-exercise/:id" component={EditExercises}/>
       <Route path="/create-users" component={CreateUsers}/>
     </Router>
   );

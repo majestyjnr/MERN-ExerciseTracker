@@ -20,7 +20,7 @@ router.post('/add-exercise', function(req, res){
 })
 
 router.get('/edit-exercise/:id', function(req, res){
-    console.log(req.params.id)
+    // // console.log(req.params.id)
     Exercises.findById(req.params.id).then(exercise => res.json(exercise)).catch(err => res.status(400).json('Error: ' + err))
 })
 
