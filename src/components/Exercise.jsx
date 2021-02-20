@@ -2,10 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const Exercise = (props) => {
-    function update(id){
-        console.log(id)
-        window.location = '/edit-exercises/' + id
-    }
     return (
         <tr>
             <td>{props.exercise.username}</td>
@@ -13,7 +9,7 @@ const Exercise = (props) => {
             <td>{props.exercise.duration}</td>
             <td>{props.exercise.date}</td>
             <td>
-            <Link to={"/edit-exercises/" + props.exercise._id }> Edit </Link> | <a href="#" > Delete </a>
+            <Link to={`/edit-exercises/${props.exercise._id}`}> Edit </Link> | <a href="#" > Delete </a>
             </td>
         </tr>
     )

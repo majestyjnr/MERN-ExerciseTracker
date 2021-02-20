@@ -10,7 +10,8 @@ const [date, setDate] = useState(new Date())
 const [users, setUsers] = useState([])
 
 useEffect(() => {
-    axios.get('http://localhost:4000/' + props.match.params.id).then(response => {if (response.data.length > 0 ){
+    console.log(props.match.params.id)
+    axios.get(`http://localhost:4000/${props.match.params.id}`).then(response => {if (response.data.length > 0 ){
         setUsers(response.data.map(user => user.username))
     }}).catch(error => {
         console.log(error)
