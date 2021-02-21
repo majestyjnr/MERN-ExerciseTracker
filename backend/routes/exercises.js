@@ -10,8 +10,8 @@ router.get('/', function(req, res){
 })
 
 // Delete Exercise Handler
-router.delete('/:id', function(req, res){
-    
+router.get('/exercise/:id', function(req, res){
+    Exercises.findByIdAndRemove(req.params.id, { useFindAndModify: false }).then(deletedExercise => res.json(deletedExercise)).catch(err => res.status(400).json('Error: ' + err))
 })
 
 // Add Excercise Handler
