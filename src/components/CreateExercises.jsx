@@ -51,15 +51,15 @@ const onSubmit = (e) => {
 
                 <div className="form-group">
                     <label htmlFor="">Description:</label>
-                    <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                    <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Duration: (In minutes)</label>
-                    <input type="number" value={duration} className="form-control" onChange={(e)=> setDuration(e.target.value)}/>
+                    <input type="number" value={duration} className="form-control" onChange={(e)=> setDuration(e.target.value)} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Date:</label>
-                    <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)}/>
+                   <Datepicker selected ={date} onChange={(date) => setDate(date)}/>
                 </div>
 
                 <input type="submit" value="Save Exercise" placeholder='In Minutes' className='btn btn-primary'/>

@@ -49,7 +49,7 @@ const onSubmit = (e) => {
             <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <select class="form-control" value={username} onChange={(e)=> setUsername(e.target.value)} id="username">
+                    <select class="form-control" value={username} onChange={(e)=> setUsername(e.target.value)} id="username" required>
                         {
                             users.map(function(user){
                                 return <option key={user} value={user}>{user}</option>
@@ -60,15 +60,15 @@ const onSubmit = (e) => {
                 <input type="hidden" className="form-control" value={exerciseId}/>
                 <div className="form-group">
                     <label htmlFor="">Description:</label>
-                    <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                    <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Duration: (In minutes)</label>
-                    <input type="number" value={duration} className="form-control" onChange={(e)=> setDuration(e.target.value)}/>
+                    <input type="number" value={duration} className="form-control" onChange={(e)=> setDuration(e.target.value)} required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Date:</label>
-                    <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)}/>
+                    <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)} required/>
                 </div>
 
                 <input type="submit" value="Update Exercise" placeholder='In Minutes' className='btn btn-primary'/>

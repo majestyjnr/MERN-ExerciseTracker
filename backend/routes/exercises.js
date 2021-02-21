@@ -9,10 +9,6 @@ router.get('/', function(req, res){
     Exercises.find().then(exercise => res.json(exercise)).catch(err => res.status(400).json('Error: ' + err))
 })
 
-// Delete Exercise Handler
-router.get('/exercise/:id', function(req, res){
-    Exercises.findByIdAndRemove(req.params.id, { useFindAndModify: false }).then(deletedExercise => res.json(deletedExercise)).catch(err => res.status(400).json('Error: ' + err))
-})
 
 // Add Excercise Handler
 router.post('/add-exercise', function(req, res){
@@ -42,5 +38,11 @@ router.post('/edit-exercise', function(req, res){
     }
     Exercises.updateOne({ _id: req.body.exerciseId }, editedExercise ).then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
+
+// Delete Exercise Handler
+router.delete('/exercise/:id', function(req, res){
+    Exercises.findByIdAndDelete(req.params.id, { useFindAndModify: false }).then(deletedExercise => res.json(deletedExercise)).catch(err => res.status(400).json('Error: ' + err))
+})
+
 
 module.exports = router

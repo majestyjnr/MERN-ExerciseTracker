@@ -12,7 +12,7 @@ const Exercises = () => {
   }, []);
 
   function deleteExercise(id) {
-    // axios.get("http://localhost:4000/exercise/" + id).then((res) => {
+    // axios.delete("http://localhost:4000/exercise/" + id).then((res) => {
     //   alert('Data deleted successfully')
     // });
     // setExercises(exercises.filter((el) => el._id !== id));
