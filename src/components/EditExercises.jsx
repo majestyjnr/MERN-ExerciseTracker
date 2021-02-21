@@ -58,7 +58,7 @@ const onSubmit = (e) => {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="">Description:</label>
+                    <label htmlFor="">Id:</label>
                     <input type="hidden" className="form-control" value={exerciseId}/>
                 </div>
                 <div className="form-group">
