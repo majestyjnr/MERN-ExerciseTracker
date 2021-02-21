@@ -36,7 +36,7 @@ const onSubmit = (e) => {
         duration,
         date
     }
-    axios.post('http://localhost:4000/add-exercise', newExercise).then(res => console.log(res.data))
+    axios.post('http://localhost:4000/edit-exercise', newExercise).then(res => console.log(res.data))
 
     window.location ='/'
 }
