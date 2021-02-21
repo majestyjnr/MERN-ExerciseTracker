@@ -19,18 +19,6 @@ const Exercises = () => {
     setExercises(exercises.filter((el) => el._id !== id));
   }
 
-  function exercisesList() {
-    return exercises.map((eachExercise) => {
-      return (
-        <Exercise
-          exercise={eachExercise}
-          deleteExercise={deleteExercise}
-          key={eachExercise._id}
-        />
-      );
-    });
-  }
-
   return (
     <div className="container card">
       <h2 className="text-center">Registered Exercises</h2>
