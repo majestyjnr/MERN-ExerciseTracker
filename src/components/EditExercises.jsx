@@ -1,4 +1,6 @@
 import React,{useState, useEffect} from 'react'
+import Datepicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.min.css'
 import axios from 'axios'
 
 const EditExercises = (props) => {
@@ -68,7 +70,8 @@ const onSubmit = (e) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Date:</label>
-                    <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)} required/>
+                    <br/>
+                    <Datepicker selected ={date} onChange={(date) => setDate(date)}/>
                 </div>
 
                 <input type="submit" value="Update Exercise" placeholder='In Minutes' className='btn btn-primary'/>

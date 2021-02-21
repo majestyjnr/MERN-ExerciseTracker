@@ -7,10 +7,10 @@ const Exercise = (props) => {
             <td>{props.exercise.username}</td>
             <td>{props.exercise.description}</td>
             <td>{props.exercise.duration}</td>
-            <td>{props.exercise.date}</td>
+            <td>{props.exercise.date.substring(0,10)}</td>
             <td>
             {/* onClick={props.deleteExercise(props.exercise._id)} */}
-            <Link to={'/edit-exercise/' + props.exercise._id}> Edit </Link> | <button onClick={props.deleteExercise(props.exercise._id)}> Delete </button>
+            <Link to={'/edit-exercise/' + props.exercise._id}> Edit </Link> | <a href="#" onClick={() =>{props.deleteExercise(props.exercise._id)} }> Delete </a>
             </td>
         </tr>
     )

@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-      <div className="container-fluid">
+    <nav className="navbar navbar-dark bg-primary navbar-expand-lg">
+      <div className="container-fluid text-white">
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
             Exercise Tracker

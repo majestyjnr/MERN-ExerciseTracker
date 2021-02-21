@@ -16,7 +16,7 @@ router.post('/add-exercise', function(req, res){
         username: req.body.username,
         description: req.body.description,
         duration: req.body.duration,
-        date: req.body.duration
+        date: Date.parse(req.body.date)
     })
     newExercise.save().then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
@@ -33,7 +33,7 @@ router.post('/edit-exercise', function(req, res){
             username: req.body.username,
             description: req.body.description,
             duration: req.body.duration,
-            date: req.body.duration
+            date: Date.parse(req.body.date)
         }
     }
     Exercises.updateOne({ _id: req.body.exerciseId }, editedExercise ).then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
