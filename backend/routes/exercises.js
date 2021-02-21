@@ -4,10 +4,17 @@ const router = express.Router()
 // Require Models
 const Exercises = require('../models/Exercise')
 
+// Get Exercises Handler
 router.get('/', function(req, res){
     Exercises.find().then(exercise => res.json(exercise)).catch(err => res.status(400).json('Error: ' + err))
 })
 
+// Delete Exercise Handler
+router.delete('/:id', function(req, res){
+    
+})
+
+// Add Excercise Handler
 router.post('/add-exercise', function(req, res){
     const newExercise = new Exercises({
         username: req.body.username,
@@ -15,16 +22,16 @@ router.post('/add-exercise', function(req, res){
         duration: req.body.duration,
         date: req.body.duration
     })
-
     newExercise.save().then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
 
+// Get Exercise to be edited
 router.get('/edit-exercise/:id', function(req, res){
     Exercises.findById(req.params.id).then(exercise => res.json(exercise)).catch(err => res.status(400).json('Error: ' + err))
 })
 
+// Edit Exercise Handler
 router.post('/edit-exercise', function(req, res){
-
     const editedExercise = {
         $set: {
             username: req.body.username,
