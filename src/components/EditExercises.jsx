@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
 const EditExercises = (props) => {
-
+const [exerciseId, setExerciseId] = useState('')
 const [username, setUsername] = useState('')
 const [description, setDescription] = useState('')
 const [duration, setDuration] = useState(0)
@@ -12,14 +12,14 @@ const [users, setUsers] = useState([])
 useEffect(() => {
     console.log(props.match.params.id)
     axios.get('http://localhost:4000/edit-exercise/' + props.match.params.id).then((response) => {
-
+        setExerciseId(response.data._id)
+        setUsername(response.data.username)
         setDescription(response.data.description)
         setDuration(response.data.duration)
         setDate(new Date(response.data.date))
     }).catch(error => {
         console.log(error)
     });
-
 
     axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
         setUsers(response.data.map(user => user.username))
@@ -36,8 +36,6 @@ const onSubmit = (e) => {
         duration,
         date
     }
-    console.table(newExercise)
-
     axios.post('http://localhost:4000/add-exercise', newExercise).then(res => console.log(res.data))
 
     window.location ='/'
@@ -48,7 +46,6 @@ const onSubmit = (e) => {
     return (
         <div className="container card p-5">
             <h1>Edit Exercise</h1>
-
             <form className="add-form" onSubmit={onSubmit}>
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -60,7 +57,10 @@ const onSubmit = (e) => {
                         }
                     </select>
                 </div>
-
+                <div className="form-group">
+                    <label htmlFor="">Description:</label>
+                    <input type="hidden" className="form-control" value={exerciseId}/>
+                </div>
                 <div className="form-group">
                     <label htmlFor="">Description:</label>
                     <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)}/>
