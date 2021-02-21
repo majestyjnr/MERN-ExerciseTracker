@@ -10,7 +10,6 @@ const [date, setDate] = useState(new Date())
 const [users, setUsers] = useState([])
 
 useEffect(() => {
-    console.log(props.match.params.id)
     axios.get('http://localhost:4000/edit-exercise/' + props.match.params.id).then((response) => {
         setExerciseId(response.data._id)
         setUsername(response.data.username)
@@ -26,11 +25,12 @@ useEffect(() => {
     }}).catch(error => {
         console.log(error)
     });
-})
+}, [])
 
 const onSubmit = (e) => {
     e.preventDefault()
     const newExercise ={
+        exerciseId,
         username,
         description,
         duration,
@@ -57,10 +57,7 @@ const onSubmit = (e) => {
                         }
                     </select>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="">Id:</label>
-                    <input type="hidden" className="form-control" value={exerciseId}/>
-                </div>
+                <input type="hidden" className="form-control" value={exerciseId}/>
                 <div className="form-group">
                     <label htmlFor="">Description:</label>
                     <input type="text" placeholder="Description" className="form-control" value={description} onChange={(e)=> setDescription(e.target.value)}/>
@@ -74,7 +71,7 @@ const onSubmit = (e) => {
                     <input type="date" value={date} className="form-control" onChange={(e)=> setDate(e.target.value)}/>
                 </div>
 
-                <input type="submit" value="Save Exercise" placeholder='In Minutes' className='btn btn-primary'/>
+                <input type="submit" value="Update Exercise" placeholder='In Minutes' className='btn btn-primary'/>
             </form>
         </div>
     )

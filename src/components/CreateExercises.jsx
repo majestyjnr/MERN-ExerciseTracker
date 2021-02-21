@@ -11,13 +11,11 @@ const [users, setUsers] = useState([])
 
 useEffect(() => {
     axios.get('http://localhost:4000/users').then(response => {if (response.data.length > 0 ){
-        console.log(response)
         setUsers(response.data.map(user => user.username))
-        // setUsername(response.data[0].username)
     }}).catch(error => {
         console.log(error)
     });
-})
+}, [])
 
 const onSubmit = (e) => {
     e.preventDefault()
@@ -39,9 +37,8 @@ const onSubmit = (e) => {
     return (
         <div className="container card p-5">
             <h1>Create Exercise</h1>
-
             <form className="add-form" onSubmit={onSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="username">Username:</label>
                     <select class="form-control" value={username} onChange={(e)=> setUsername(e.target.value)} id="username">
                         {

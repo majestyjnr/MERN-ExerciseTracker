@@ -40,7 +40,7 @@ router.post('/edit-exercise', function(req, res){
             date: req.body.duration
         }
     }
-    Exercises.updateOne({ _id: req.body._id }, editedExercise ).then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
+    Exercises.updateOne({ _id: req.body.exerciseId }, editedExercise ).then(()=> res.json(`${req.body.username}'s Exercise has been successfully registered.`)).catch(err => res.status(400).json('Error: ' + err))
 })
 
 module.exports = router
