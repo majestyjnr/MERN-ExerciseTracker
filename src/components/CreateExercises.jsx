@@ -60,7 +60,8 @@ const onSubmit = (e) => {
                     <input type="number" value={duration} className="form-control" onChange={(e)=> setDuration(e.target.value)} required/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="">Date:</label>
+                    <label htmlFor="">Date:</label> 
+                    <br/>
                    <Datepicker selected ={date} onChange={(date) => setDate(date)}/>
                 </div>
 
